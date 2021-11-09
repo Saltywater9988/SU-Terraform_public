@@ -1,0 +1,10 @@
+1 - 1 Internet VPC
+2 - 3 resoruce public subnets
+3 - 3 resource private subnet
+4 - 1 internet gateway
+5 - 1 route table public
+6 - 3 route associate public
+7 - 1 resource for NAT
+8 - 1 resource to add NAT resource
+9 - 1 resource VPC setup for NAT
+10- 3 private route association
