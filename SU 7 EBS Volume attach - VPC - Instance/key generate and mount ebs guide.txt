@@ -1,0 +1,54 @@
+PS C:\Terraform> ssh-keygen -f mykey
+Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in mykey.
+Your public key has been saved in mykey.pub.
+The key fingerprint is:
+SHA256:R7JHmWJ2pGpidWVq5X6ga4nro/8jS+cg/e15fVdfSeA shuja@DESKTOP-IK464E5
+The key's randomart image is:
++---[RSA 3072]----+
+|          =      |
+|         O o .   |
+|      . X O . .  |
+|     . * X . E . |
+|    o o S + . . .|
+|   . + . = .   .o|
+|    . = =    .  +|
+|     ooB.. .. . +|
+|    .+==+o+.   ..|
++----[SHA256]-----+
+PS C:\Terraform> 
+
+#use ssh private key to login to ec2 instance#
+PS C:\Terraform> ssh 34.244.74.79 -l ubuntu -i mykey
+#linux commands to verify instance config#
+sudo -s 
+ifconfig
+route -n
+
+*to check ebs volume size"
+sudo -s 
+df -h
+
+*now mount the ebs 20 gig volume from instance cli with creating ext4 linux filesystem*
+mkfs.ext4 /dev/xvdh
+mkdir /data
+mount /dev/xvdh /data
+df -h
+should see now 20G in /dev/xvdx
+when you restart the linux machine 20 gig data will be gone
+move the volume to /etc/fstab to be available on restart
+root@linuxmachine# vim /etc/fstab
+/dev/xvdh /data ext4 defaults 0 0 
+
+if you need to know 0 0 do 
+root@linuxmachine#man fstab
+
+to make data available 
+root@linuxmachine#umount /data
+root@linuxmachine#mount /data
+root@linuxmachine#cat /etc/fstab
+if you restart machine now data will be availabe, advantage of doing this if terminate instance
+and launch new instance can re-attach your EBS data volume to instance
+
