@@ -1,0 +1,88 @@
+PS C:\Terraform> ssh-keygen -f mykey
+Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in mykey.
+Your public key has been saved in mykey.pub.
+The key fingerprint is:
+SHA256:R7JHmWJ2pGpidWVq5X6ga4nro/8jS+cg/e15fVdfSeA shuja@DESKTOP-IK464E5
+The key's randomart image is:
++---[RSA 3072]----+
+|          =      |
+|         O o .   |
+|      . X O . .  |
+|     . * X . E . |
+|    o o S + . . .|
+|   . + . = .   .o|
+|    . = =    .  +|
+|     ooB.. .. . +|
+|    .+==+o+.   ..|
++----[SHA256]-----+
+PS C:\Terraform> 
+
+#use ssh private key to login to ec2 instance#
+PS C:\Terraform> ssh 34.244.74.79 -l ubuntu -i mykey
+or 
+PS C:\Terraform> ssh -i mykey ubuntu@43.1.2.5
+
+
+to generate some load for alarm to triger to create second instance of ubuntu
+sudo apt-get install stress
+now
+stress --cpu 2 --timeout 300
+
+terraform ouputs
+
+curl my-elb-569880823.eu-west-1.elb.amazonaws.com
+host my-elb-569880823.eu-west-1.elb.amazonaws.com
+
+example deploy app from linux
+git clone https://github.com/wardviaene/eb-php-example
+cd eb-php-example/
+ls
+cat index.php
+eb init
+eb deploy
+
+
+
+
+===============
+deployed
+===============
+===============
+PS C:\Terraform> terraform state list
+aws_db_instance.mariadb
+aws_db_parameter_group.mariadb-parameters
+aws_db_subnet_group.mariadb-subnet
+aws_eip.nat
+aws_elastic_beanstalk_application.app
+aws_elastic_beanstalk_environment.app-prod
+aws_iam_instance_profile.app-ec2-role
+aws_iam_policy_attachment.app-attach1
+aws_iam_policy_attachment.app-attach2
+aws_iam_policy_attachment.app-attach3
+aws_iam_policy_attachment.app-attach4
+aws_iam_role.app-ec2-role
+aws_iam_role.elasticbeanstalk-service-role
+aws_internet_gateway.SU-gw
+aws_key_pair.mykeypair
+aws_nat_gateway.nat-gw
+aws_route_table.SU-private
+aws_route_table.SU-public
+aws_route_table_association.SU-private-1-a
+aws_route_table_association.SU-private-2-a
+aws_route_table_association.SU-private-3-a
+aws_route_table_association.SU-public-1-a
+aws_route_table_association.SU-public-2-a
+aws_route_table_association.SU-public-3-a
+aws_security_group.allow-mariadb
+aws_security_group.app-prod
+aws_subnet.SU-private-1
+aws_subnet.SU-private-2
+aws_subnet.SU-private-3
+aws_subnet.SU-public-1
+aws_subnet.SU-public-2
+aws_subnet.SU-public-3
+aws_vpc.SU
+PS C:\Terraform>
