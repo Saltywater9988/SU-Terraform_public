@@ -1,2 +1,0 @@
-# SU-Terraform
-Terraform-SU
