@@ -1,0 +1,22 @@
+PS C:\Terraform> ssh-keygen -f mykey
+Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in mykey.
+Your public key has been saved in mykey.pub.
+The key fingerprint is:
+
+|    o o S + . . .|
+|   . + . = .   .o|
+|    . = =    .  +|
+|     ooB.. .. . +|
+|    .+==+o+.   ..|
++----[SHA256]-----+
+PS C:\Terraform> 
+
+#use ssh private key to login to ec2 instance#
+PS C:\Terraform> ssh 34.244.74.79 -l ubuntu -i mykey
+#linux commands to verify instance config#
+sudo -s 
+ifconfig
+route -n

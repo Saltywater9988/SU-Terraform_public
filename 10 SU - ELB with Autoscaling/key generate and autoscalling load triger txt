@@ -1,0 +1,33 @@
+PS C:\Terraform> ssh-keygen -f mykey
+Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in mykey.
+Your public key has been saved in mykey.pub.
+
+|         O o .   |
+|      . X O . .  |
+|     . * X . E . |
+|    o o S + . . .|
+|   . + . = .   .o|
+|    . = =    .  +|
+|     ooB.. .. . +|
+|    .+==+o+.   ..|
++----[SHA256]-----+
+PS C:\Terraform> 
+
+#use ssh private key to login to ec2 instance#
+PS C:\Terraform> ssh 34.244.74.79 -l ubuntu -i mykey
+or 
+PS C:\Terraform> ssh -i mykey ubuntu@43.1.2.5
+
+
+to generate some load for alarm to triger to create second instance of ubuntu
+sudo apt-get install stress
+now
+stress --cpu 2 --timeout 300
+
+terraform ouputs
+
+curl my-elb-569880823.eu-west-1.elb.amazonaws.com
+host my-elb-569880823.eu-west-1.elb.amazonaws.com
