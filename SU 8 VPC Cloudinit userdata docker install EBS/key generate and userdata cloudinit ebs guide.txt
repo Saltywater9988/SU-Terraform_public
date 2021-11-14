@@ -5,10 +5,7 @@ Enter same passphrase again:
 Your identification has been saved in mykey.
 Your public key has been saved in mykey.pub.
 The key fingerprint is:
-SHA256:R7JHmWJ2pGpidWVq5X6ga4nro/8jS+cg/e15fVdfSeA shuja@DESKTOP-IK464E5
-The key's randomart image is:
-+---[RSA 3072]----+
-|          =      |
+
 |         O o .   |
 |      . X O . .  |
 |     . * X . E . |
