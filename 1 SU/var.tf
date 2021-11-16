@@ -1,5 +1,5 @@
 variable "name" {
-  default = "Test_resource"
+  default = "Test_resource1"
 }
 variable "location" {
   default = "eastus"
